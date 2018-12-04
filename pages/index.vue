@@ -38,16 +38,30 @@ export default class Landing extends Vue {
   }
 
   render(h) {
+    console.log(this.users)
     return (
       <div>
         <h1>Landing#Index</h1>
         <ul>
-          <li>
-            <nuxt-link to="/user/1">User 1</nuxt-link>
-          </li>
+          {this.users.map(({ id, name }, index) => {
+            const link =
+              index === 0 ? (
+                <a href={`/user/${id}`}>{name}</a>
+              ) : (
+                <nuxt-link to={`/user/${id}`}>{name}</nuxt-link>
+              )
+            return <li>{link}</li>
+          })}
         </ul>
       </div>
     )
   }
 }
 </script>
+
+
+<style scoped>
+li > * {
+  display: inline-block;
+}
+</style>
