@@ -38,7 +38,6 @@ export default class Landing extends Vue {
   }
 
   render(h) {
-    console.log(this.users)
     return (
       <div>
         <h1>Landing#Index</h1>
